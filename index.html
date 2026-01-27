@@ -5,14 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test Theme Overrides</title>
     <style>
+      /* Default theme - Light mode */
       :root,
-      [data-theme] [data-theme='default'],
+      [data-theme='default'],
       [data-theme-mode='light'],
-      [data-theme-mode='light'] [data-theme='default'],
       [data-theme='default'][data-theme-mode='light'],
+      [data-theme-mode='light'] [data-theme='default'],
+      [data-theme='default'] [data-theme-mode='light'],
       [data-theme] [data-theme='default'][data-theme-mode='light'],
+      [data-theme] [data-theme-mode='light'] [data-theme='default'],
       [data-theme] [data-theme='default'] [data-theme-mode='light'],
-      [data-theme-mode='dark'] [data-theme-mode='opposite'] {
+      [data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme='default'][data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme-mode='dark'] [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme='default'] [data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme-mode='dark'] [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='dark'] [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='dark'] [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme='default'][data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='dark'] [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme] [data-theme='default'] [data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='dark'] [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme-mode='dark'] [data-theme] [data-theme='default'] [data-theme-mode='opposite'] {
         --bg-primary: #ffffff;
         --bg-muted: #f8f9fa;
         --text-primary: #212529;
@@ -21,14 +35,33 @@
         --border-muted: #e9ecef;
       }
 
+      /* Default theme - Dark mode */
       [data-theme-mode='dark'],
-      [data-theme-mode='dark'] [data-theme='default'],
-      [data-theme='default'][data-theme-mode='dark'],
-      [data-theme='default'] [data-theme-mode='dark'],
-      [data-theme] [data-theme='default'][data-theme-mode='dark'],
-      [data-theme] [data-theme='default'] [data-theme-mode='dark'],
       [data-theme-mode='opposite'],
-      [data-theme-mode='light'] [data-theme-mode='opposite'] {
+      [data-theme='default'][data-theme-mode='dark'],
+      [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme-mode='dark'] [data-theme='default'],
+      [data-theme='default'] [data-theme-mode='dark'],
+      [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='dark'] [data-theme='default'],
+      [data-theme] [data-theme-mode='opposite'],
+      [data-theme] [data-theme='default'][data-theme-mode='dark'],
+      [data-theme] [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme] [data-theme='default'] [data-theme-mode='dark'],
+      [data-theme] [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme='default'][data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme='default'] [data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='light'] [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='light'] [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme='default'][data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='light'] [data-theme='default'][data-theme-mode='opposite'],
+      [data-theme] [data-theme='default'] [data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='light'] [data-theme='default'] [data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme] [data-theme='default'] [data-theme-mode='opposite'] {
         --bg-primary: #1a1a1a;
         --bg-muted: #2d2d2d;
         --text-primary: #e9ecef;
@@ -37,13 +70,24 @@
         --border-muted: #343a40;
       }
 
+      /* Neon theme - Light mode */
       [data-theme='neon'],
       [data-theme='neon'][data-theme-mode='light'],
+      [data-theme-mode='light'] [data-theme='neon'],
       [data-theme='neon'] [data-theme-mode='light'],
-      [data-theme-mode='dark'] [data-theme='neon'] [data-theme-mode='opposite'],
-      [data-theme-mode='dark'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme] [data-theme='neon'][data-theme-mode='light'],
+      [data-theme] [data-theme-mode='light'] [data-theme='neon'],
+      [data-theme] [data-theme='neon'] [data-theme-mode='light'],
       [data-theme='neon'][data-theme-mode='dark'] [data-theme-mode='opposite'],
-      [data-theme='neon'] [data-theme-mode='dark'] [data-theme-mode='opposite'] {
+      [data-theme-mode='dark'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme='neon'] [data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme-mode='dark'] [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='dark'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='dark'] [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme='neon'][data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='dark'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme] [data-theme='neon'] [data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='dark'] [data-theme='neon'] [data-theme-mode='opposite'] {
         --bg-primary: #c3fce0;
         --bg-muted: #c1e8d4;
         --text-primary: #009861;
@@ -52,15 +96,25 @@
         --border-muted: #ff92ff;
       }
 
+      /* Neon theme - Dark mode */
       [data-theme='neon'][data-theme-mode='dark'],
-      [data-theme='neon'] [data-theme-mode='dark'],
-      [data-theme-mode='dark'] [data-theme='neon'],
-      [data-theme='neon'] [data-theme-mode='opposite'],
       [data-theme='neon'][data-theme-mode='opposite'],
-      [data-theme-mode='light'] [data-theme='neon'][data-theme-mode='opposite'],
-      [data-theme-mode='light'] [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme-mode='dark'] [data-theme='neon'],
+      [data-theme='neon'] [data-theme-mode='dark'],
+      [data-theme='neon'] [data-theme-mode='opposite'],
       [data-theme='neon'][data-theme-mode='light'] [data-theme-mode='opposite'],
-      [data-theme='neon'] [data-theme-mode='light'] [data-theme-mode='opposite'] {
+      [data-theme-mode='light'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme='neon'] [data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme='neon'][data-theme-mode='dark'],
+      [data-theme] [data-theme-mode='dark'] [data-theme='neon'],
+      [data-theme] [data-theme='neon'] [data-theme-mode='dark'],
+      [data-theme][data-theme-mode='light'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme][data-theme-mode='light'] [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme='neon'][data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='light'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme] [data-theme='neon'] [data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme] [data-theme-mode='light'] [data-theme='neon'] [data-theme-mode='opposite'] {
         --bg-primary: #1d2526;
         --bg-muted: #203341;
         --text-primary: #ff00ff;
@@ -87,7 +141,6 @@
         grid-template-columns: 1fr auto;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2rem;
       }
 
       .card {
@@ -101,7 +154,7 @@
         border: 1px solid var(--card-border);
         border-radius: 8px;
         padding: 1.5rem;
-        margin-bottom: 1.5rem;
+
         box-shadow: 0 2px 4px var(--card-shadow);
         transition: all 0.3s;
       }
@@ -109,10 +162,13 @@
       .card-header {
         background: var(--card-header-bg);
         margin: -1.5rem -1.5rem 1rem;
-        padding: 1rem 1.5rem;
+        padding: 1rem 1rem;
         border-bottom: 1px solid var(--card-border);
         border-radius: 8px 8px 0 0;
         font-weight: 600;
+      }
+      p {
+        margin: 0.5rem;
       }
 
       .card-muted {
@@ -124,12 +180,12 @@
       .card-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
+        gap: 1rem;
       }
 
       .theme-wrapper {
-        margin-top: 3rem;
-        padding: 1.5rem;
+        margin-top: 1rem;
+        padding: 0 0.5rem 0.5rem;
         border: 2px solid var(--border-primary);
         border-radius: 12px;
         color: var(--text-primary);
@@ -170,24 +226,18 @@
         <p>Global <code>data-theme</code></p>
       </header>
       <div class="card-grid">
-        <article class="card">
-          <header class="card-header">no <code>data-theme-mode</code></header>
-          <p>This card inherits mode parent.</p>
-        </article>
+        <article class="card">no <code>data-theme-mode</code></article>
 
         <article class="card" data-theme-mode="opposite">
-          <header class="card-header">data-theme-mode="opposite"</header>
-          <p>Opposite color mode</p>
+          <code>data-theme-mode="opposite"</code>
         </article>
 
         <article class="card" data-theme-mode="dark">
-          <header class="card-header"><code>data-theme-mode="dark"</code></header>
-          <p>Explicit Dark Mode</p>
+          <code>data-theme-mode="dark"</code>
         </article>
 
         <article class="card" data-theme-mode="light">
-          <header class="card-header"><code>data-theme-mode="light"</code></header>
-          <p>Explicit Light Mode</p>
+          <code>data-theme-mode="light"</code>
         </article>
       </div>
     </section>
@@ -197,50 +247,38 @@
         <p><code>data-theme="neon"</code></p>
       </header>
       <div class="card-grid">
-        <article class="card">
-          <header class="card-header">no <code>data-theme-mode</code></header>
-          <p>This card inherits mode parent.</p>
-        </article>
+        <article class="card">no <code>data-theme-mode</code></article>
 
         <article class="card" data-theme-mode="opposite">
-          <header class="card-header">data-theme-mode="opposite"</header>
-          <p>Opposite color mode</p>
+          <code>data-theme-mode="opposite"</code>
         </article>
 
         <article class="card" data-theme-mode="dark">
-          <header class="card-header"><code>data-theme-mode="dark"</code></header>
-          <p>Explicit Dark Mode</p>
+          <code>data-theme-mode="dark"</code>
         </article>
 
         <article class="card" data-theme-mode="light">
-          <header class="card-header"><code>data-theme-mode="light"</code></header>
-          <p>Explicit Light Mode</p>
+          <code>data-theme-mode="light"</code>
         </article>
       </div>
 
       <section class="theme-wrapper" data-theme="default">
         <header>
-          <p><code>data-theme="default"</code> within <code>data-theme="neon"</code></p>
+          <p><code>data-theme="default"</code></p>
         </header>
         <div class="card-grid">
-          <article class="card">
-            <header class="card-header">no <code>data-theme-mode</code></header>
-            <p>This card inherits mode parent.</p>
-          </article>
+          <article class="card">no <code>data-theme-mode</code></article>
 
           <article class="card" data-theme-mode="opposite">
-            <header class="card-header">data-theme-mode="opposite"</header>
-            <p>Opposite color mode</p>
+            <code>data-theme-mode="opposite"</code>
           </article>
 
           <article class="card" data-theme-mode="dark">
-            <header class="card-header"><code>data-theme-mode="dark"</code></header>
-            <p>Explicit Dark Mode</p>
+            <code>data-theme-mode="dark"</code>
           </article>
 
           <article class="card" data-theme-mode="light">
-            <header class="card-header"><code>data-theme-mode="light"</code></header>
-            <p>Explicit Light Mode</p>
+            <code>data-theme-mode="light"</code>
           </article>
         </div>
       </section>
