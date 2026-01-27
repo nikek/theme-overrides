@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Theme Overrides</title>
+    <style>
+      :root,
+      [data-theme] [data-theme='default'],
+      [data-theme-mode='light'],
+      [data-theme-mode='light'] [data-theme='default'],
+      [data-theme='default'][data-theme-mode='light'],
+      [data-theme] [data-theme='default'][data-theme-mode='light'],
+      [data-theme] [data-theme='default'] [data-theme-mode='light'],
+      [data-theme-mode='dark'] [data-theme-mode='opposite'] {
+        --bg-primary: #ffffff;
+        --bg-muted: #f8f9fa;
+        --text-primary: #212529;
+        --text-muted: #6c757d;
+        --border-primary: #dee2e6;
+        --border-muted: #e9ecef;
+      }
+
+      [data-theme-mode='dark'],
+      [data-theme-mode='dark'] [data-theme='default'],
+      [data-theme='default'][data-theme-mode='dark'],
+      [data-theme='default'] [data-theme-mode='dark'],
+      [data-theme] [data-theme='default'][data-theme-mode='dark'],
+      [data-theme] [data-theme='default'] [data-theme-mode='dark'],
+      [data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme-mode='opposite'] {
+        --bg-primary: #1a1a1a;
+        --bg-muted: #2d2d2d;
+        --text-primary: #e9ecef;
+        --text-muted: #6c757d;
+        --border-primary: #495057;
+        --border-muted: #343a40;
+      }
+
+      [data-theme='neon'],
+      [data-theme='neon'][data-theme-mode='light'],
+      [data-theme='neon'] [data-theme-mode='light'],
+      [data-theme-mode='dark'] [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme-mode='dark'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme='neon'][data-theme-mode='dark'] [data-theme-mode='opposite'],
+      [data-theme='neon'] [data-theme-mode='dark'] [data-theme-mode='opposite'] {
+        --bg-primary: #c3fce0;
+        --bg-muted: #c1e8d4;
+        --text-primary: #009861;
+        --text-muted: #42906c;
+        --border-primary: #ff5bd9;
+        --border-muted: #ff92ff;
+      }
+
+      [data-theme='neon'][data-theme-mode='dark'],
+      [data-theme='neon'] [data-theme-mode='dark'],
+      [data-theme-mode='dark'] [data-theme='neon'],
+      [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme='neon'][data-theme-mode='opposite'],
+      [data-theme-mode='light'] [data-theme='neon'] [data-theme-mode='opposite'],
+      [data-theme='neon'][data-theme-mode='light'] [data-theme-mode='opposite'],
+      [data-theme='neon'] [data-theme-mode='light'] [data-theme-mode='opposite'] {
+        --bg-primary: #1d2526;
+        --bg-muted: #203341;
+        --text-primary: #ff00ff;
+        --text-muted: #ff75fd;
+        --border-primary: #00ff62;
+        --border-muted: #51ffd3;
+      }
+
+      body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        padding-inline: 2rem;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+
+      .page-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .card {
+        --card-bg: var(--bg-muted);
+        --card-header-bg: var(--bg-primary);
+        --card-border: var(--border-primary);
+        --card-shadow: rgba(0, 0, 0, 0.1);
+
+        color: var(--text-primary);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 4px var(--card-shadow);
+        transition: all 0.3s;
+      }
+
+      .card-header {
+        background: var(--card-header-bg);
+        margin: -1.5rem -1.5rem 1rem;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--card-border);
+        border-radius: 8px 8px 0 0;
+        font-weight: 600;
+      }
+
+      .card-muted {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .theme-wrapper {
+        margin-top: 3rem;
+        padding: 1.5rem;
+        border: 2px solid var(--border-primary);
+        border-radius: 12px;
+        color: var(--text-primary);
+        background: var(--bg-muted);
+      }
+
+      .theme-toggle {
+        display: block;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border-primary);
+        border-radius: 6px;
+        color: var(--text-primary);
+
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .theme-toggle:hover {
+        background: var(--bg-muted);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Theme Overrides</h1>
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme Mode</button>
+    </header>
+
+    <section>
+      <header>
+        <p>Global <code>data-theme</code></p>
+      </header>
+      <div class="card-grid">
+        <article class="card">
+          <header class="card-header">no <code>data-theme-mode</code></header>
+          <p>This card inherits mode parent.</p>
+        </article>
+
+        <article class="card" data-theme-mode="opposite">
+          <header class="card-header">data-theme-mode="opposite"</header>
+          <p>Opposite color mode</p>
+        </article>
+
+        <article class="card" data-theme-mode="dark">
+          <header class="card-header"><code>data-theme-mode="dark"</code></header>
+          <p>Explicit Dark Mode</p>
+        </article>
+
+        <article class="card" data-theme-mode="light">
+          <header class="card-header"><code>data-theme-mode="light"</code></header>
+          <p>Explicit Light Mode</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="theme-wrapper" data-theme="neon">
+      <header>
+        <p><code>data-theme="neon"</code></p>
+      </header>
+      <div class="card-grid">
+        <article class="card">
+          <header class="card-header">no <code>data-theme-mode</code></header>
+          <p>This card inherits mode parent.</p>
+        </article>
+
+        <article class="card" data-theme-mode="opposite">
+          <header class="card-header">data-theme-mode="opposite"</header>
+          <p>Opposite color mode</p>
+        </article>
+
+        <article class="card" data-theme-mode="dark">
+          <header class="card-header"><code>data-theme-mode="dark"</code></header>
+          <p>Explicit Dark Mode</p>
+        </article>
+
+        <article class="card" data-theme-mode="light">
+          <header class="card-header"><code>data-theme-mode="light"</code></header>
+          <p>Explicit Light Mode</p>
+        </article>
+      </div>
+
+      <section class="theme-wrapper" data-theme="default">
+        <header>
+          <p><code>data-theme="default"</code> within <code>data-theme="neon"</code></p>
+        </header>
+        <div class="card-grid">
+          <article class="card">
+            <header class="card-header">no <code>data-theme-mode</code></header>
+            <p>This card inherits mode parent.</p>
+          </article>
+
+          <article class="card" data-theme-mode="opposite">
+            <header class="card-header">data-theme-mode="opposite"</header>
+            <p>Opposite color mode</p>
+          </article>
+
+          <article class="card" data-theme-mode="dark">
+            <header class="card-header"><code>data-theme-mode="dark"</code></header>
+            <p>Explicit Dark Mode</p>
+          </article>
+
+          <article class="card" data-theme-mode="light">
+            <header class="card-header"><code>data-theme-mode="light"</code></header>
+            <p>Explicit Light Mode</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <script>
+      function toggleTheme() {
+        const html = document.documentElement;
+        const currentMode = html.getAttribute('data-theme-mode');
+        const newMode = currentMode === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme-mode', newMode);
+      }
+    </script>
+  </body>
+</html>
