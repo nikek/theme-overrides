@@ -193,103 +193,117 @@
       }
 
       .theme-toggle {
-        display: block;
-        top: 1rem;
-        right: 1rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
         padding: 0.75rem 1.5rem;
         background: var(--card-bg);
         border: 1px solid var(--border-primary);
         border-radius: 6px;
         color: var(--text-primary);
-
         font-size: 0.875rem;
         font-weight: 500;
-        transition: all 0.3s;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      .theme-toggle:hover {
-        background: var(--bg-muted);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      .theme-toggle label {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
     <header class="page-header">
       <h1>Theme Overrides</h1>
-      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme Mode</button>
+      <div class="theme-toggle">
+        <label>
+          <input type="radio" name="theme-mode" value="unset" checked onchange="setThemeMode(this.value)" />
+          No mode attr
+        </label>
+        <label>
+          <input type="radio" name="theme-mode" value="light" onchange="setThemeMode(this.value)" />
+          Light
+        </label>
+        <label>
+          <input type="radio" name="theme-mode" value="dark" onchange="setThemeMode(this.value)" />
+          Dark
+        </label>
+      </div>
     </header>
 
     <section>
       <header>
-        <p>Global <code>data-theme</code></p>
+        <p>No <code>theme</code></p>
       </header>
       <div class="card-grid">
-        <article class="card">no <code>data-theme-mode</code></article>
+        <article class="card">No <code>theme-mode</code></article>
 
         <article class="card" data-theme-mode="opposite">
-          <code>data-theme-mode="opposite"</code>
+          <code>theme-mode="opposite"</code>
         </article>
 
         <article class="card" data-theme-mode="dark">
-          <code>data-theme-mode="dark"</code>
+          <code>theme-mode="dark"</code>
         </article>
 
         <article class="card" data-theme-mode="light">
-          <code>data-theme-mode="light"</code>
+          <code>theme-mode="light"</code>
         </article>
       </div>
     </section>
 
     <section class="theme-wrapper" data-theme="neon">
       <header>
-        <p><code>data-theme="neon"</code></p>
+        <p><code>theme="neon"</code></p>
       </header>
       <div class="card-grid">
-        <article class="card">no <code>data-theme-mode</code></article>
+        <article class="card">No <code>theme-mode</code></article>
 
         <article class="card" data-theme-mode="opposite">
-          <code>data-theme-mode="opposite"</code>
+          <code>theme-mode="opposite"</code>
         </article>
 
         <article class="card" data-theme-mode="dark">
-          <code>data-theme-mode="dark"</code>
+          <code>theme-mode="dark"</code>
         </article>
 
         <article class="card" data-theme-mode="light">
-          <code>data-theme-mode="light"</code>
+          <code>theme-mode="light"</code>
         </article>
       </div>
 
       <section class="theme-wrapper" data-theme="default">
         <header>
-          <p><code>data-theme="default"</code></p>
+          <p><code>theme="default"</code></p>
         </header>
         <div class="card-grid">
-          <article class="card">no <code>data-theme-mode</code></article>
+          <article class="card">No <code>theme-mode</code></article>
 
           <article class="card" data-theme-mode="opposite">
-            <code>data-theme-mode="opposite"</code>
+            <code>theme-mode="opposite"</code>
           </article>
 
           <article class="card" data-theme-mode="dark">
-            <code>data-theme-mode="dark"</code>
+            <code>theme-mode="dark"</code>
           </article>
 
           <article class="card" data-theme-mode="light">
-            <code>data-theme-mode="light"</code>
+            <code>theme-mode="light"</code>
           </article>
         </div>
       </section>
     </section>
 
     <script>
-      function toggleTheme() {
+      function setThemeMode(mode) {
         const html = document.documentElement;
-        const currentMode = html.getAttribute('data-theme-mode');
-        const newMode = currentMode === 'light' ? 'dark' : 'light';
-        html.setAttribute('data-theme-mode', newMode);
+        if (mode === 'unset') {
+          html.removeAttribute('data-theme-mode');
+        } else {
+          html.setAttribute('data-theme-mode', mode);
+        }
       }
     </script>
   </body>
